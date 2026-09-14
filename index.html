@@ -992,12 +992,12 @@
             <p class="hero-lede">Ten possessions. Real reads. Process the defense, beat the decision clock, and get coached immediately.</p>
             <div class="hero-actions">
               <button class="primary-btn" id="start-btn">Enter the game →</button>
-              <span class="micro-copy">24-second reads · 100 points · every answer reshuffles</span>
+              <span class="micro-copy">60-second reads · 100 points · every answer reshuffles</span>
             </div>
             <div class="feature-strip" aria-label="Game features">
               <div class="feature"><strong>10</strong><span>Possessions</span></div>
               <div class="feature"><strong>4</strong><span>Skill areas</span></div>
-              <div class="feature"><strong>24 sec</strong><span>Decision clock</span></div>
+              <div class="feature"><strong>60 sec</strong><span>Decision clock</span></div>
             </div>
           </div>
 
@@ -1054,8 +1054,8 @@
             <div class="progress-track" id="progress-track" aria-label="Game progress"></div>
           </div>
           <div class="status-metrics">
-            <div class="decision-clock" id="decision-clock" aria-label="24 seconds remaining">
-              <div class="decision-clock-top"><span>Decision clock</span><div><strong id="clock-value">24</strong><small>s</small></div></div>
+            <div class="decision-clock" id="decision-clock" aria-label="60 seconds remaining">
+              <div class="decision-clock-top"><span>Decision clock</span><div><strong id="clock-value">60</strong><small>s</small></div></div>
               <div class="clock-track"><span class="clock-fill" id="clock-fill"></span></div>
             </div>
             <div class="scoreboard"><span>Decision score</span><strong id="live-score">00</strong></div>
@@ -1821,7 +1821,7 @@
       $("replay-btn").setAttribute("aria-label", "Replay coach solution");
     }
 
-    const DECISION_SECONDS = 24;
+    const DECISION_SECONDS = 60;
     const TIMER_START_DELAY_MS = 0;
 
     function clearDecisionTimer() {
