@@ -7,23 +7,28 @@
   <title>Point Guard Lab | Decision Game</title>
   <style>
     :root {
-      --navy: #06182f;
-      --navy-2: #0a2343;
-      --blue: #1457d9;
-      --blue-light: #48a7ff;
-      --red: #ee3447;
-      --red-dark: #b81f33;
-      --gold: #ffc857;
-      --ink: #10233f;
-      --muted: #64748b;
-      --line: #dce4ee;
-      --paper: #f4f7fb;
+      --obsidian: #0d1327;
+      --navy: #0d1327;
+      --navy-2: #172541;
+      --blue: #006feb;
+      --blue-dark: #0059bd;
+      --blue-light: #4fa6ff;
+      --red: #f43f5e;
+      --red-dark: #be143d;
+      --gold: #fac115;
+      --ink: #0d1327;
+      --muted: #587089;
+      --slate-light: #a1afbd;
+      --line: #dce3e9;
+      --paper: #f6f8fa;
       --white: #ffffff;
-      --green: #18a56a;
-      --green-soft: #e9f8f1;
-      --amber-soft: #fff6df;
-      --red-soft: #fff0f2;
-      --shadow: 0 24px 70px rgba(5, 24, 47, 0.16);
+      --green: #0c8c00;
+      --green-bright: #4fd63e;
+      --green-soft: #f0feee;
+      --amber-soft: #fff9df;
+      --red-soft: #fff1f2;
+      --ball: #e8912d;
+      --shadow: 0 24px 70px rgba(13, 19, 39, 0.18);
     }
 
     * { box-sizing: border-box; }
@@ -33,9 +38,9 @@
       min-height: 100vh;
       color: var(--ink);
       background:
-        radial-gradient(circle at 12% -8%, rgba(72, 167, 255, 0.28), transparent 30rem),
-        linear-gradient(135deg, #041327 0%, #0a2343 54%, #07182f 100%);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        radial-gradient(circle at 12% -8%, rgba(0, 111, 235, 0.34), transparent 31rem),
+        linear-gradient(135deg, #0d1327 0%, #13213d 58%, #0d1327 100%);
+      font-family: "DM Sans", Helvetica, Arial, sans-serif;
       overflow-x: hidden;
     }
 
@@ -74,36 +79,27 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .brand-mark {
-      width: 39px;
-      height: 39px;
-      display: grid;
-      place-items: center;
-      border: 2px solid white;
-      color: white;
-      font-size: 14px;
-      font-weight: 950;
-      letter-spacing: -0.08em;
-      transform: skew(-7deg);
-      box-shadow: 4px 4px 0 var(--red);
+      width: 4px;
+      height: 40px;
+      background: var(--blue);
+      border-radius: 99px;
     }
 
     .brand-copy strong,
     .brand-copy span { display: block; }
     .brand-copy strong {
-      font-size: 13px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: -.01em;
     }
     .brand-copy span {
       margin-top: 2px;
-      color: #a9c4e4;
-      font-size: 10px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
+      color: var(--slate-light);
+      font-size: 11px;
+      letter-spacing: .03em;
     }
 
     .prototype-pill {
@@ -112,10 +108,9 @@
       background: rgba(255,255,255,.06);
       border-radius: 999px;
       padding: 8px 12px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
 
     main {
@@ -137,10 +132,9 @@
       align-items: center;
       gap: 8px;
       color: var(--blue-light);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .2em;
-      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
     }
 
     .eyebrow::before {
@@ -198,17 +192,16 @@
       border-radius: 5px;
       min-height: 54px;
       padding: 0 24px;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0;
       cursor: pointer;
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
 
     .primary-btn {
       color: white;
-      background: linear-gradient(135deg, var(--red), #ff5a62);
-      box-shadow: 0 13px 30px rgba(238, 52, 71, .3);
+      background: var(--blue);
+      box-shadow: 0 13px 30px rgba(0, 111, 235, .28);
     }
     .secondary-btn {
       color: var(--ink);
@@ -219,7 +212,7 @@
     .secondary-btn:hover { transform: translateY(-2px); }
     .primary-btn:focus-visible,
     .secondary-btn:focus-visible,
-    .choice:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .choice:focus-visible { outline: 3px solid #67e8f9; outline-offset: 3px; }
 
     .micro-copy {
       color: #8eaac8;
@@ -292,9 +285,9 @@
     .mini-court svg { width: 100%; height: 100%; display: block; }
     .preview-foot { padding: 16px 5px 3px; color: #d4e2f0; }
     .preview-score strong { font-size: 30px; color: white; }
-    .preview-score span { color: #91acc8; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+    .preview-score span { color: #91acc8; font-size: 11px; letter-spacing: .01em; }
     .preview-read { text-align: right; }
-    .preview-read strong { display: block; font-size: 14px; color: var(--gold); }
+    .preview-read strong { display: block; font-size: 14px; color: #7ec1ff; }
     .preview-read span { font-size: 11px; color: #91acc8; }
 
     .feature-strip {
@@ -312,7 +305,7 @@
       background: rgba(5,25,49,.74);
     }
     .feature strong { display: block; font-size: 17px; }
-    .feature span { color: #8eaac8; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .feature span { color: #8eaac8; font-size: 11px; letter-spacing: .01em; }
 
     /* Game */
     #game-screen { padding: 12px 0 36px; }
@@ -329,9 +322,8 @@
     .status-kicker {
       font-size: 10px;
       color: #8fb3d8;
-      font-weight: 900;
-      letter-spacing: .18em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .02em;
     }
 
     .status-line {
@@ -360,17 +352,80 @@
     .progress-segment.done { background: var(--blue-light); }
     .progress-segment.current { background: var(--red); transform: scaleY(1.4); }
 
+    .status-metrics {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .decision-clock,
     .scoreboard {
       min-width: 164px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       border: 1px solid rgba(255,255,255,.18);
       background: rgba(0,0,0,.15);
       border-radius: 8px;
       padding: 10px 14px;
     }
-    .scoreboard span { font-size: 10px; color: #9db7d1; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
+
+    .decision-clock {
+      position: relative;
+      min-width: 154px;
+      overflow: hidden;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .decision-clock-top {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .decision-clock span,
+    .scoreboard span {
+      color: #a1afbd;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .decision-clock strong {
+      font-size: 28px;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .decision-clock small { color: #a1afbd; font-size: 11px; }
+
+    .clock-track {
+      position: absolute;
+      inset: auto 0 0;
+      height: 4px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .clock-fill {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--blue-light);
+      transform-origin: left;
+      transition: width .1s linear, background .2s ease;
+    }
+
+    .decision-clock.warning { border-color: #fac115; background: rgba(250,193,21,.11); }
+    .decision-clock.warning .clock-fill { background: #fac115; }
+    .decision-clock.critical { border-color: var(--red); background: rgba(244,63,94,.14); }
+    .decision-clock.critical .clock-fill { background: var(--red); }
+    .decision-clock.paused .clock-fill { background: var(--green-bright); }
+
+    .scoreboard {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     .scoreboard strong { font-size: 28px; line-height: 1; }
     .score-pop { animation: scorePop .35s ease; }
     @keyframes scorePop { 50% { transform: scale(1.28); color: var(--gold); } }
@@ -389,7 +444,7 @@
       position: relative;
       padding: 26px;
       color: white;
-      background: #0b2c50;
+      background: var(--obsidian);
       overflow: hidden;
     }
     .court-panel::after {
@@ -412,12 +467,11 @@
       z-index: 2;
       display: inline-flex;
       padding: 7px 10px;
-      background: var(--red);
+      background: var(--blue);
       border-radius: 3px;
       font-size: 10px;
-      font-weight: 950;
-      letter-spacing: .14em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
 
     .court-wrap {
@@ -449,9 +503,8 @@
       gap: 8px;
       color: #d6e6f6;
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
 
     .motion-mode::before {
@@ -464,8 +517,8 @@
     }
 
     .motion-mode.solution::before {
-      background: #38d996;
-      box-shadow: 0 0 0 5px rgba(56,217,150,.14);
+      background: var(--green-bright);
+      box-shadow: 0 0 0 5px rgba(79,214,62,.14);
     }
 
     .replay-btn {
@@ -481,9 +534,8 @@
       border-radius: 4px;
       cursor: pointer;
       font-size: 10px;
-      font-weight: 850;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
       transition: background .18s ease, border-color .18s ease;
     }
 
@@ -502,6 +554,14 @@
     .motion-route.screen { stroke: #e8f3ff; stroke-width: 3.5; }
     .screen-bar { stroke: #e8f3ff; stroke-width: 5; stroke-linecap: round; }
 
+    .court-label text {
+      fill: var(--obsidian);
+      font-size: 10px;
+      font-weight: 700;
+      text-anchor: middle;
+    }
+    .court-label rect { fill: rgba(255,255,255,.9); stroke: rgba(13,19,39,.16); }
+
     .player-shadow { fill: rgba(43,28,12,.24); }
     .player-body.offense { fill: var(--blue); }
     .player-body.defense { fill: var(--red); }
@@ -510,12 +570,27 @@
     .player-head { fill: #8b5939; stroke: rgba(255,255,255,.82); stroke-width: 1.6; }
     .player-number { fill: #fff; font-weight: 950; text-anchor: middle; paint-order: stroke; stroke: rgba(4,24,47,.35); stroke-width: 1.5; }
     .player-facing { fill: none; stroke: rgba(255,255,255,.72); stroke-width: 2; stroke-linecap: round; }
-    .basketball { fill: var(--gold); stroke: #6a460e; stroke-width: 1.8; }
+    .basketball { fill: var(--ball); stroke: #6a460e; stroke-width: 1.8; }
     .ball-seam { fill: none; stroke: #8b5e16; stroke-width: 1; }
+
+    .target-ring {
+      fill: none;
+      stroke: var(--green-bright);
+      stroke-width: 4;
+      opacity: 0;
+      transform-origin: center;
+    }
+    .player-marker.coach-target .target-ring {
+      opacity: 1;
+      animation: targetPulse 1.25s ease-in-out infinite;
+    }
+    @keyframes targetPulse {
+      50% { r: 31px; opacity: .55; }
+    }
 
     .solution-route {
       fill: none;
-      stroke: #38d996;
+      stroke: var(--green-bright);
       stroke-width: 6;
       stroke-linecap: round;
       opacity: 0;
@@ -525,9 +600,12 @@
       pointer-events: none;
     }
 
+    .solution-route.solution-pass { stroke-dasharray: 100 100; }
+    .solution-route.solution-dribble { stroke-width: 6; }
+
     .solution-route.revealed {
       opacity: 1;
-      animation: drawSolution 1.05s cubic-bezier(.22,.82,.32,1) forwards;
+      animation: drawSolution .95s var(--solution-delay, 0s) cubic-bezier(.22,.82,.32,1) forwards;
     }
 
     .solution-caption {
@@ -541,11 +619,11 @@
       stroke-width: 5px;
       stroke-linejoin: round;
     }
-    .solution-caption.revealed { opacity: 1; animation: rise .35s .7s ease both; }
+    .solution-caption.revealed { opacity: 1; animation: rise .3s var(--solution-delay, .45s) ease both; }
 
     .solution-puck {
       opacity: 0;
-      fill: #38d996;
+      fill: var(--green-bright);
       stroke: #fff;
       stroke-width: 2;
       filter: drop-shadow(0 2px 3px rgba(4,39,27,.4));
@@ -595,18 +673,16 @@
       border: 1px solid #d7e0ea;
       border-radius: 99px;
       font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .07em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
     .context-chip.urgent { color: #a51328; background: #ffe7eb; border-color: #ffc7cf; }
 
     .scenario-count {
       color: var(--blue);
       font-size: 11px;
-      font-weight: 950;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .02em;
     }
 
     .decision-panel h2 {
@@ -628,13 +704,13 @@
       margin: 19px 0 12px;
       color: var(--navy);
       font-size: 13px;
-      font-weight: 950;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
 
     .choices {
       display: grid;
+      grid-auto-rows: 1fr;
       gap: 9px;
     }
 
@@ -644,8 +720,8 @@
       grid-template-columns: 34px 1fr auto;
       align-items: center;
       gap: 12px;
-      min-height: 56px;
-      padding: 9px 14px 9px 10px;
+      min-height: 76px;
+      padding: 11px 14px 11px 10px;
       text-align: left;
       color: #17304d;
       background: white;
@@ -671,11 +747,11 @@
       font-size: 12px;
       font-weight: 950;
     }
-    .choice-copy { font-size: 13px; font-weight: 760; line-height: 1.35; }
-    .choice-status { font-size: 10px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+    .choice-copy { font-size: 13px; font-weight: 700; line-height: 1.4; }
+    .choice-status { font-size: 10px; font-weight: 700; letter-spacing: .01em; }
     .choice.selected {
       border-width: 2px;
-      padding: 8px 13px 8px 9px;
+      padding: 10px 13px 10px 9px;
     }
     .choice.elite { border-color: var(--green); background: var(--green-soft); }
     .choice.elite .choice-key { color: white; background: var(--green); }
@@ -708,13 +784,17 @@
       border-radius: 99px;
       padding: 6px 9px;
       font-size: 10px;
-      font-weight: 950;
-      letter-spacing: .07em;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: .01em;
     }
     .feedback p { margin: 8px 0 0; color: #465e7a; font-size: 13px; line-height: 1.48; }
     .feedback .cue { color: var(--navy); }
     .feedback .cue strong { color: var(--red-dark); }
+
+    .feedback .why {
+      padding-top: 8px;
+      border-top: 1px solid rgba(13,19,39,.1);
+    }
 
     .next-row {
       display: none;
@@ -789,6 +869,21 @@
       padding: 38px clamp(28px, 6vw, 66px) 44px;
     }
     .results-body h3 { margin: 0 0 18px; font-size: 12px; letter-spacing: .13em; text-transform: uppercase; }
+    .session-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .session-metric {
+      padding: 13px 14px;
+      color: var(--obsidian);
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+    .session-metric strong { display: block; color: var(--blue); font-size: 24px; line-height: 1; }
+    .session-metric span { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; }
     .skill-row { margin-bottom: 16px; }
     .skill-label { display: flex; justify-content: space-between; margin-bottom: 7px; font-size: 12px; font-weight: 850; }
     .skill-bar { height: 8px; background: #dfe6ee; border-radius: 10px; overflow: hidden; }
@@ -846,7 +941,9 @@
       .feature strong { font-size: 14px; }
       .feature span { font-size: 9px; }
       .game-status { grid-template-columns: 1fr; gap: 12px; }
-      .scoreboard { min-width: 0; width: 100%; }
+      .status-metrics { width: 100%; }
+      .decision-clock,
+      .scoreboard { min-width: 0; flex: 1; }
       .game-card { border-radius: 8px; }
       .court-panel { padding: 14px; }
       .scenario-tag { margin-left: 4px; }
@@ -877,13 +974,13 @@
   <div class="shell">
     <header class="topbar">
       <div class="brand" aria-label="IMG Academy Basketball Point Guard Lab">
-        <div class="brand-mark" aria-hidden="true">PG</div>
+        <div class="brand-mark" aria-hidden="true"></div>
         <div class="brand-copy">
           <strong>IMG Academy Basketball</strong>
           <span>Point Guard Lab</span>
         </div>
       </div>
-      <div class="prototype-pill">Playable MVP · v2 motion</div>
+      <div class="prototype-pill">Decision training · 10 possessions</div>
     </header>
 
     <main>
@@ -892,15 +989,15 @@
           <div>
             <div class="eyebrow">Decision Training</div>
             <h1 id="game-title">Own the <span>Next Play.</span></h1>
-            <p class="hero-lede">Ten possessions. Real reads. No rewind. Process the defense, make the call, and get coached immediately.</p>
+            <p class="hero-lede">Ten possessions. Real reads. Process the defense, beat the decision clock, and get coached immediately.</p>
             <div class="hero-actions">
               <button class="primary-btn" id="start-btn">Enter the game →</button>
-              <span class="micro-copy">About 6 minutes · 100 points · choices reshuffle every run</span>
+              <span class="micro-copy">24-second reads · 100 points · every answer reshuffles</span>
             </div>
             <div class="feature-strip" aria-label="Game features">
               <div class="feature"><strong>10</strong><span>Possessions</span></div>
               <div class="feature"><strong>4</strong><span>Skill areas</span></div>
-              <div class="feature"><strong>Instant</strong><span>Coach feedback</span></div>
+              <div class="feature"><strong>24 sec</strong><span>Decision clock</span></div>
             </div>
           </div>
 
@@ -949,14 +1046,20 @@
         </div>
       </section>
 
-      <section class="screen" id="game-screen" aria-live="polite">
+      <section class="screen" id="game-screen">
         <div class="game-status">
           <div>
             <div class="status-kicker">Live decision session</div>
             <div class="status-line"><strong id="phase-label">Possession 1 of 10</strong><span id="category-label">Pace</span></div>
             <div class="progress-track" id="progress-track" aria-label="Game progress"></div>
           </div>
-          <div class="scoreboard"><span>Decision score</span><strong id="live-score">00</strong></div>
+          <div class="status-metrics">
+            <div class="decision-clock" id="decision-clock" aria-label="24 seconds remaining">
+              <div class="decision-clock-top"><span>Decision clock</span><div><strong id="clock-value">24</strong><small>s</small></div></div>
+              <div class="clock-track"><span class="clock-fill" id="clock-fill"></span></div>
+            </div>
+            <div class="scoreboard"><span>Decision score</span><strong id="live-score">00</strong></div>
+          </div>
         </div>
 
         <article class="game-card">
@@ -984,9 +1087,10 @@
             <div class="prompt">What is your read?</div>
             <div class="choices" id="choices" role="group" aria-label="Decision choices"></div>
 
-            <div class="feedback" id="feedback" tabindex="-1">
+            <div class="feedback" id="feedback" tabindex="-1" role="status" aria-live="polite">
               <div class="feedback-top"><h3 id="feedback-title"></h3><span class="points-earned" id="points-earned"></span></div>
               <p id="feedback-copy"></p>
+              <p class="why" id="feedback-why"></p>
               <p class="cue" id="feedback-cue"></p>
             </div>
 
@@ -1013,6 +1117,7 @@
           <div class="results-body">
             <div>
               <h3>Decision profile</h3>
+              <div class="session-metrics" id="session-metrics"></div>
               <div id="skill-bars"></div>
               <div class="results-actions">
                 <button class="primary-btn" id="restart-btn">Run it back ↻</button>
@@ -1028,11 +1133,11 @@
       </section>
     </main>
 
-    <footer class="footer-note">IMG Academy-inspired training prototype · Dynamic court motion · Randomized decisions</footer>
+    <footer class="footer-note">IMG Academy Basketball · Point Guard Lab · Decision training prototype</footer>
   </div>
 
   <script>
-    const scenarios = [
+    const baseScenarios = [
       {
         tag: "Transition",
         category: "Pace",
@@ -1274,6 +1379,211 @@
       }
     ];
 
+    const scenarioUpgrades = [
+      {
+        timeoutFeedback: "The advantage disappears when the ball stops. Identify the last defender, force a commitment, and deliver on time.",
+        solutionRoutes: [
+          ["dribble", 210, 330, 190, 260, "Commit X5"],
+          ["pass", 190, 260, 150, 238, "Drop pass"]
+        ],
+        solutionTargets: ["5"],
+        choices: [
+          { text: "Attack X5's inside hip, hold him with your eyes, then deliver the drop pass after he fully commits.", points: 10, feedback: "Elite pace and patience. You make the final defender choose, protect both scoring lanes, and pass after his hips declare." },
+          { text: "Shift X5 with a controlled middle drive, then fire to the right corner once his shoulders turn toward the rim.", points: 7, feedback: "Good manipulation. The corner creates a clean catch, although the rim runner remains the shortest path to the best shot." },
+          { text: "Slow the break, protect the ball, and organize your preferred half-court action before either defender disrupts the possession.", points: 4, feedback: "The possession stays safe, but the defense wins time to recover and removes the transition numbers advantage." },
+          { text: "Drive directly through X5's chest, shield the ball, and attempt the finish before the trailing defender recovers into the play.", points: 0, feedback: "That lets one defender guard two. A lead guard creates the layup instead of challenging the rim protector's strength." }
+        ]
+      },
+      {
+        title: "Punish the committed tag",
+        context: ["Flipped drag screen", "Q1 · 2:18", "Shot clock 16"],
+        situation: "The five flips the drag screen to send you right. X1 trails and X5 drops. On the weak side, X2 leaves the left corner and puts both feet in the paint to tag the roll.",
+        cue: "Do not assume the corner is open. Hold the drop, confirm the low defender has fully committed, then throw away from the tag.",
+        timeoutFeedback: "The coverage reset before you identified the tag. Find the lowest weak-side defender first, then make him guard two.",
+        players: [
+          ["1", 285, 325, "o", true], ["5", 292, 264, "o"], ["2", 20, 92, "o"], ["3", 400, 92, "o"], ["4", 82, 238, "o"],
+          ["X1", 267, 300, "d"], ["X5", 285, 205, "d"], ["X2", 145, 160, "d"], ["X3", 350, 120, "d"], ["X4", 110, 230, "d"]
+        ],
+        motions: [
+          ["1", 220, 410, "dribble", 0], ["5", 320, 300, "screen", .15], ["X1", 220, 365, "defense", .05],
+          ["X5", 250, 195, "defense", .3], ["X2", 25, 115, "defense", .45]
+        ],
+        solutionRoutes: [
+          ["dribble", 285, 310, 330, 235, "Hold the drop"],
+          ["pass", 330, 235, 25, 100, "Skip the tag"]
+        ],
+        solutionTargets: ["2"],
+        labels: [["Tag commits", 145, 126], ["Opens late", 55, 58]],
+        choices: [
+          { text: "Use the flipped screen, hold the drop with two dribbles, then skip left after X2 fully tags the rolling five.", points: 10, feedback: "Complete coverage read. The flipped screen makes X2 the weak-side tag, and the pass becomes available only after his full commitment." },
+          { text: "Turn the corner tightly, freeze X5 at the rim, then deliver the pocket pass before X2 reaches the roller's body.", points: 7, feedback: "Strong first read. The pocket is productive when early, but the tagging defender can still shrink the roller's finishing window." },
+          { text: "Stop behind the flipped screen, square your shoulders, and take the pull-up three before the trailing defender can contest.", points: 4, feedback: "The shot may exist, but it does not punish the loaded low defender or create the strongest second-side advantage." },
+          { text: "Reject the flipped screen immediately, drive into the loaded left gap, and force a finish through the waiting low defender.", points: 0, feedback: "The rejection attacks directly toward the loaded tag. That choice removes space and ignores what the flipped screen was designed to expose." }
+        ]
+      },
+      {
+        title: "Stretch the blitz",
+        context: ["High pick-and-roll", "Q2 · 7:05", "Shot clock 18"],
+        situation: "X5 jumps above the screen and X1 locks onto your high hip. You create separation with one retreat dribble while the five releases into the short-roll window.",
+        cue: "Create a passing angle before releasing the ball. Stretch the trap, keep your vision through the middle, and hit the roller on the move.",
+        timeoutFeedback: "Two defenders stayed on the ball too long. Create one step of separation and release to the moving short roller.",
+        players: [
+          ["1", 325, 330, "o", true], ["5", 245, 220, "o"], ["2", 20, 92, "o"], ["3", 400, 92, "o"], ["4", 82, 230, "o"],
+          ["X1", 304, 315, "d"], ["X5", 328, 295, "d"], ["X2", 90, 130, "d"], ["X3", 350, 125, "d"], ["X4", 118, 220, "d"]
+        ],
+        motions: [
+          ["1", 260, 355, "dribble", 0], ["X1", 275, 330, "defense", .12], ["X5", 260, 205, "defense", .32],
+          ["5", 245, 285, "cut", .58]
+        ],
+        solutionRoutes: [["pass", 325, 316, 245, 220, "Short roll"]],
+        solutionTargets: ["5"],
+        labels: [["Trap stretched", 338, 270], ["Moving window", 238, 180]],
+        choices: [
+          { text: "Create separation with one retreat dribble, lengthen the trap, then hit the rolling five before the low defender closes.", points: 10, feedback: "Elite pressure solution. Your retreat creates the passing angle, the delayed roll moves into space, and the early release produces four-on-three." },
+          { text: "Release the pass immediately as X5 shows, trusting the roller to catch through the narrowing space between both defenders.", points: 7, feedback: "The idea is right, but the passing angle is crowded. One controlled retreat step makes the same read safer and cleaner." },
+          { text: "Attack the seam between both trappers, keep the dribble alive, and search for the roller after entering the pressure.", points: 4, feedback: "A split is available only when the defenders separate. Here their hips are connected, making the middle seam a turnover risk." },
+          { text: "Pick up the ball beside the screen, pivot away from pressure, and wait for a perimeter teammate to return.", points: 0, feedback: "Stopping the dribble lets the trap collapse every passing window. Preserve space and make the two defenders chase your retreat." }
+        ]
+      },
+      {
+        context: ["Five-out spacing", "Q2 · 3:34", "Shot clock 12"],
+        situation: "You catch behind the right wing after a paint touch. X1 closes with a high hand, the center stunts from the nail, and all four teammates maintain five-out spacing beyond the arc.",
+        cue: "The floor is already spaced. Attack the closeout's top foot, touch the paint, and force the nail defender to choose.",
+        timeoutFeedback: "The long closeout recovered. Make the catch-to-drive decision before the defender can regain balance.",
+        players: [
+          ["1", 360, 235, "o", true], ["2", 400, 90, "o"], ["3", 20, 90, "o"], ["4", 95, 235, "o"], ["5", 250, 320, "o"],
+          ["X1", 330, 220, "d"], ["X2", 350, 115, "d"], ["X3", 82, 120, "d"], ["X4", 130, 220, "d"], ["X5", 270, 225, "d"]
+        ],
+        motions: [
+          ["1", 345, 205, "cut", 0], ["X1", 285, 215, "defense", .18], ["X5", 245, 205, "defense", .45]
+        ],
+        solutionRoutes: [
+          ["dribble", 385, 225, 315, 185, "Top-foot attack"],
+          ["pass", 315, 185, 395, 100, "Corner kick"]
+        ],
+        solutionTargets: ["2"],
+        labels: [["Five-out spacing", 250, 410]],
+        choices: [
+          { text: "Rip through X1's top foot, take one paint dribble, then pass only if the nail defender fully commits.", points: 10, feedback: "Elite point-five decision. The spacing opens the lane, your drive engages the nail, and the corner pass follows a real commitment." },
+          { text: "Move the ball immediately to the corner, preserve the spacing, and trust the next teammate to attack the rotating defense.", points: 7, feedback: "The extra pass keeps flow, but it releases the ball before your drive forces the nail defender to make a decision." },
+          { text: "Shot fake twice, reset your stance, and wait for X1 to recover before beginning a new one-on-one attack.", points: 4, feedback: "The extra fakes erase the closeout advantage. The defense wants time to square its hips and restore the shell." },
+          { text: "Rise directly into the closeout, absorb the high-hand contest, and attempt the three before the defense becomes organized.", points: 0, feedback: "That converts an advantage catch into a defended jumper. Use the defender's forward momentum to win the paint first." }
+        ]
+      },
+      {
+        timeoutFeedback: "The zone reset before the ball touched the middle. Locate the high post early and make the back line turn.",
+        players: [
+          ["1", 210, 335, "o", true], ["4", 210, 214, "o"], ["2", 400, 98, "o"], ["3", 65, 235, "o"], ["5", 78, 83, "o"],
+          ["X1", 150, 281, "d"], ["X2", 270, 281, "d"], ["X3", 88, 138, "d"], ["X5", 210, 145, "d"], ["X4", 332, 138, "d"]
+        ],
+        solutionRoutes: [["pass", 210, 316, 210, 238, "Middle touch"]],
+        solutionTargets: ["4"],
+        choices: [
+          { text: "Feed the flashing high post, cut through the opposite top gap, and prepare for the kick-out or high-low pass.", points: 10, feedback: "The middle touch turns every defender, and your cut prevents the top line from immediately recovering to the next pass." },
+          { text: "Skip directly to the baseline runner, lead him toward the rim, and trust the pass to clear the bottom defender.", points: 7, feedback: "You locate the weak area, but the long pass crosses several hands. The high post is the safer connector into that space." },
+          { text: "Dribble laterally across the top, shift both guards together, and wait until one defender abandons the zone structure.", points: 4, feedback: "The shell shifts without collapsing. The zone is comfortable when the ball moves sideways and never enters the middle." },
+          { text: "Call for a high screen, split both top defenders, and attempt to finish before the back line can collapse.", points: 0, feedback: "That drive enters two set defenders and shrinks your vision. Passing inside makes the entire zone rotate at once." }
+        ]
+      },
+      {
+        timeoutFeedback: "The late-clock window closed. Scan rim, paint, and perimeter in that order before creating a difficult jumper.",
+        solutionRoutes: [["pass", 341, 165, 247, 113, "Slip pass"]],
+        solutionTargets: ["5"],
+        choices: [
+          { text: "Throw the quick pocket pass to the slipping five, leading him toward the rim before weak-side help recognizes the switch.", points: 10, feedback: "Excellent rim scan. The switch creates one beat of confusion, and you use the shortest passing window before help can load." },
+          { text: "Take one dribble toward the middle, improve the passing angle, then deliver the slip pass as the help defender turns.", points: 7, feedback: "The angle improves, but the extra bounce costs valuable late-clock time and allows the weak-side defender to recover." },
+          { text: "Call for another screen, create separation into the middle, and rise for the first available pull-up before the horn.", points: 4, feedback: "You can create a shot, but the first action has already produced a higher-value layup window behind the switch." },
+          { text: "Launch the sideline three immediately, protect against a clock violation, and accept the contest from the recovering defender.", points: 0, feedback: "Urgency does not require panic. The clock is short, but the rim remains the first and most valuable scan." }
+        ]
+      },
+      {
+        tag: "Pressure",
+        context: ["Frontcourt run-and-jump", "Q3 · 4:26", "Shot clock 21"],
+        situation: "You advance along the right sideline when a second defender runs to trap. Your center flashes into the open middle with his chest and hands facing you.",
+        cue: "The middle is oxygen against pressure. Deliver before the sideline becomes a third defender, then move to restore the passing triangle.",
+        timeoutFeedback: "The sideline became the third defender. Find the middle flash early and move behind the pass to stay connected.",
+        solutionRoutes: [["pass", 331, 340, 235, 280, "Middle outlet"]],
+        solutionTargets: ["5"],
+        choices: [
+          { text: "Pass on time to the middle flash, then sprint behind the ball to become the receiver's safest return outlet.", points: 10, feedback: "Textbook pressure solution. The middle receiver sees both sides, and your sprint immediately rebuilds a strong passing triangle." },
+          { text: "Use one escape dribble backward, widen the passing angle, then hit the middle before the second defender closes space.", points: 7, feedback: "You preserve the possession and widen the angle, although the middle target is available before the extra retreat bounce." },
+          { text: "Reverse pivot away from pressure, load a diagonal pass, and throw over both defenders toward the opposite guard.", points: 4, feedback: "You see away from pressure, but the long diagonal stays in the air and gives rotating defenders time to intercept." },
+          { text: "Turn up the sideline with speed, split the approaching trap, and protect the ball until you reach open floor.", points: 0, feedback: "The boundary removes half your escape space. Passing through the middle defeats the trap faster than dribbling through two." }
+        ]
+      },
+      {
+        title: "Create the high-low angle",
+        context: ["Switch mismatch", "Q4 · 7:52", "Center fronted"],
+        situation: "A guard fronts your five on the left block after the switch. The opposing center stays on the weak-side block as baseline help, while your four flashes cleanly to the elbow.",
+        cue: "Loaded help is not a double-team. Move the ball to the elbow, change the entry angle, and make the fronting guard play behind.",
+        timeoutFeedback: "The mismatch expired before the angle changed. Use the elbow connector instead of forcing a perfect direct lob.",
+        players: [
+          ["1", 350, 245, "o", true], ["5", 120, 112, "o"], ["4", 245, 205, "o"], ["2", 400, 90, "o"], ["3", 55, 235, "o"],
+          ["X1", 155, 132, "d"], ["X5", 305, 112, "d"], ["X4", 250, 170, "d"], ["X2", 350, 118, "d"], ["X3", 88, 220, "d"]
+        ],
+        motions: [
+          ["5", 145, 170, "cut", 0], ["4", 330, 255, "cut", .2], ["X1", 178, 155, "defense", .18], ["X5", 315, 135, "defense", .35]
+        ],
+        solutionRoutes: [
+          ["pass", 370, 235, 250, 205, "Change angle"],
+          ["pass", 245, 195, 125, 118, "High-low"]
+        ],
+        solutionTargets: ["4", "5"],
+        labels: [["Front", 162, 96], ["Baseline help", 315, 75]],
+        choices: [
+          { text: "Hit the flashing four at the elbow, change the entry angle, then deliver the high-low pass over the front.", points: 10, feedback: "High-level angle creation. The elbow entry removes the guard's front and prevents baseline help from guarding both interior players." },
+          { text: "Dribble toward the baseline, flatten the passing angle, then attempt a lob before the weak-side center reaches the rim.", points: 7, feedback: "You seek an improved angle, but the baseline dribble moves toward loaded help and makes the lob window unnecessarily precise." },
+          { text: "Wave the five out, flow into another ball screen, and attack the switched guard through a new perimeter action.", points: 4, feedback: "The possession remains organized, but you surrender a deep mismatch before using the available high-low connector." },
+          { text: "Force the direct wing lob, place it above the fronting guard, and trust the five to finish through help.", points: 0, feedback: "The front is baiting that pass and baseline help is already loaded. Never choose an entry that must be perfect." }
+        ]
+      },
+      {
+        context: ["End of Q3", "Game clock 0:43", "Shot clock 30"],
+        situation: "You cross half court with 43 seconds remaining and a fresh 30-second shot clock. Your best downhill action normally creates a quality attempt within six to eight seconds.",
+        cue: "Target a quality shot between 0:37 and 0:35. That protects the extra possession while preserving enough time after a full opponent possession.",
+        timeoutFeedback: "The two-for-one window closed. With 43 seconds and a 30-second clock, organize a quality attempt within six to eight seconds.",
+        players: [
+          ["1", 250, 350, "o", true], ["5", 190, 292, "o"], ["2", 400, 90, "o"], ["3", 20, 90, "o"], ["4", 95, 230, "o"],
+          ["X1", 250, 318, "d"], ["X5", 200, 235, "d"], ["X2", 350, 120, "d"], ["X3", 82, 120, "d"], ["X4", 125, 220, "d"]
+        ],
+        motions: [
+          ["1", 250, 440, "dribble", 0], ["5", 150, 350, "screen", .22], ["X1", 250, 390, "defense", .05], ["X5", 205, 190, "defense", .35]
+        ],
+        solutionRoutes: [["dribble", 250, 337, 205, 275, "Attack by 0:37"]],
+        labels: [["Game 0:43", 350, 420], ["Shot 0:30", 350, 390]],
+        choices: [
+          { text: "Flow into the downhill action immediately and hunt a quality attempt between 0:37 and 0:35 on the game clock.", points: 10, feedback: "Perfect clock command. The target window preserves shot quality and leaves a final possession after the opponent uses all 30 seconds." },
+          { text: "Attack for the first available shot within three seconds, preserving maximum time regardless of balance, matchup, or shot quality.", points: 7, feedback: "The extra possession is protected, but speed without shot quality defeats the strategic value of creating it." },
+          { text: "Use ten seconds to organize the standard set, then begin the primary action near 0:33 on the game clock.", points: 4, feedback: "The set may create quality, but the release likely comes too late to guarantee useful time for the final possession." },
+          { text: "Hold for the quarter's final shot, begin the action near 0:12, and prevent the opponent from possessing again.", points: 0, feedback: "At 43 seconds, holding removes an available possession. The math favors two organized attacks instead of one protected attempt." }
+        ]
+      },
+      {
+        context: ["Q4 · 0:11", "Down 76–74", "Shot clock off"],
+        situation: "You cross half court with 11 seconds and the defense cross-matched. Their center contains you above the right slot while your trailing five arrives to set an empty-right-corner drag screen.",
+        cue: "Keep the right corner empty, flatten the floor to the left, and attack the cross-matched center before the defense can repair matchups.",
+        timeoutFeedback: "The defense repaired the cross-match. Preserve empty-corner spacing and initiate the drag screen as soon as the trailing five arrives.",
+        players: [
+          ["1", 325, 325, "o", true], ["5", 250, 355, "o"], ["2", 20, 90, "o"], ["3", 70, 225, "o"], ["4", 145, 325, "o"],
+          ["X5", 320, 292, "d"], ["X1", 250, 325, "d"], ["X2", 82, 120, "d"], ["X3", 105, 220, "d"], ["X4", 165, 290, "d"]
+        ],
+        motions: [
+          ["1", 325, 440, "dribble", 0], ["5", 205, 430, "screen", .3], ["X5", 320, 385, "defense", .08], ["X1", 210, 380, "defense", .28]
+        ],
+        solutionRoutes: [["dribble", 325, 312, 350, 215, "Attack empty side"]],
+        solutionTargets: ["1"],
+        labels: [["Empty corner", 360, 65], ["Weak side loaded", 108, 380]],
+        choices: [
+          { text: "Stay in flow, call the empty-corner drag, and attack the cross-matched center downhill before the defense can repair.", points: 10, feedback: "Elite end-game recognition. The empty right corner stretches help, and the immediate drag attacks the vulnerable matchup before it resets." },
+          { text: "Push toward the paint first, preserve the timeout, and call it only if the center contains the initial advantage.", points: 7, feedback: "Strong aggression and timeout discipline. The drag screen provides cleaner structure, but you still pressure the broken floor immediately." },
+          { text: "Call timeout after crossing half court, organize a sideline action, and allow every player to confirm the final alignment.", points: 4, feedback: "The timeout creates organization, but it also gives the defense time to restore matchups and select its preferred coverage." },
+          { text: "Pull up for the contested three over the center, pursue the win immediately, and avoid allowing help to rotate.", points: 0, feedback: "The center matchup is an invitation to reach the paint. Do not turn a major advantage into the hardest available shot." }
+        ]
+      }
+    ];
+
+    const scenarios = baseScenarios.map((scenario, index) => ({ ...scenario, ...scenarioUpgrades[index] }));
+
     const state = {
       index: 0,
       score: 0,
@@ -1282,7 +1592,12 @@
       choiceOrders: [],
       bestPositions: [],
       categoryEarned: {},
-      categoryMax: {}
+      categoryMax: {},
+      responseTimes: [],
+      decisionStartedAt: 0,
+      timerInterval: null,
+      timerDelay: null,
+      motionTimeouts: []
     };
 
     const $ = (id) => document.getElementById(id);
@@ -1305,32 +1620,45 @@
       });
     }
 
+    function randomInt(max) {
+      if (window.crypto?.getRandomValues) {
+        const ceiling = Math.floor(0x100000000 / max) * max;
+        const value = new Uint32Array(1);
+        do { window.crypto.getRandomValues(value); } while (value[0] >= ceiling);
+        return value[0] % max;
+      }
+      return Math.floor(Math.random() * max);
+    }
+
     function shuffled(items) {
       const result = [...items];
       for (let i = result.length - 1; i > 0; i -= 1) {
-        const j = Math.floor(Math.random() * (i + 1));
+        const j = randomInt(i + 1);
         [result[i], result[j]] = [result[j], result[i]];
       }
       return result;
     }
 
     function hasObviousPositionPattern(positions) {
-      if (positions.some((value, i) => i > 0 && value === positions[i - 1])) return true;
+      for (let i = 2; i < positions.length; i += 1) {
+        if (positions[i] === positions[i - 1] && positions[i] === positions[i - 2]) return true;
+      }
       for (let i = 0; i <= positions.length - 4; i += 1) {
-        const run = positions.slice(i, i + 4).join("");
-        if (run === "0123" || run === "3210" || run === "3012" || run === "2103") return true;
+        const [a, b, c, d] = positions.slice(i, i + 4);
+        if (a === c && b === d && a !== b) return true;
       }
       return false;
     }
 
     function makeBalancedBestPositions() {
-      const extraPositions = shuffled([0, 1, 2, 3]).slice(0, 2);
-      const deck = [0, 0, 1, 1, 2, 2, 3, 3, ...extraPositions];
-      for (let attempt = 0; attempt < 250; attempt += 1) {
-        const candidate = shuffled(deck);
-        if (!hasObviousPositionPattern(candidate)) return candidate;
+      for (let attempt = 0; attempt < 500; attempt += 1) {
+        const candidate = scenarios.map(() => randomInt(4));
+        const counts = [0, 0, 0, 0];
+        candidate.forEach((position) => { counts[position] += 1; });
+        const varied = counts.every((count) => count >= 1) && Math.max(...counts) <= 4;
+        if (varied && !hasObviousPositionPattern(candidate)) return candidate;
       }
-      return [0, 2, 1, 3, extraPositions[0], 1, 0, 3, 2, extraPositions[1]];
+      return shuffled([0, 1, 2, 3, 0, 1, 2, 3, randomInt(4), randomInt(4)]);
     }
 
     function initializeChoiceOrders() {
@@ -1365,11 +1693,13 @@
       const px = scaleX(x);
       const py = scaleY(y);
       const isDefense = team === "d";
+      const delay = Number(motion?.[4] || 0);
       const motionTransform = motion
-        ? `<animateTransform class="setup-animation" attributeName="transform" type="translate" values="${scaleX(motion[1]) - px} ${scaleY(motion[2]) - py};0 0" dur="1.15s" begin="indefinite" fill="freeze" calcMode="spline" keySplines=".22 .82 .32 1"/>`
+        ? `<animateTransform class="setup-animation" data-delay="${delay}" attributeName="transform" type="translate" values="${scaleX(motion[1]) - px} ${scaleY(motion[2]) - py};0 0" dur=".82s" begin="indefinite" fill="freeze" calcMode="spline" keySplines=".22 .82 .32 1"/>`
         : "";
       return `
         <g class="player-marker ${isDefense ? "defense" : "offense"}" data-player="${label}" transform="translate(${px} ${py})">
+          <circle class="target-ring" cy="2" r="27"/>
           <g>
             ${motionTransform}
             <ellipse class="player-shadow" cy="13" rx="${isDefense ? 20 : 17}" ry="7"/>
@@ -1395,11 +1725,25 @@
         return `<path class="motion-route ${type}" d="${curvedPath(x1, y1, x2, y2, index % 2 ? -8 : 8)}" ${marker}/>${screenBar}`;
       }).join("");
       const playerMarkup = scenario.players.map(([label, x, y, team, ball]) => playerFigure(label, x, y, team, ball, motionMap.get(label))).join("");
-      const [rawX1, rawY1, rawX2, rawY2] = scenario.arrow;
-      const x1 = scaleX(rawX1), y1 = scaleY(rawY1), x2 = scaleX(rawX2), y2 = scaleY(rawY2);
-      const solutionPath = curvedPath(x1, y1, x2, y2, scenario.solutionType === "pass" ? 0 : 13);
-      const captionX = Math.max(46, Math.min(454, x2 + 12));
-      const captionY = Math.max(28, y2 - 13);
+      const rawSolutionRoutes = scenario.solutionRoutes || [[scenario.solutionType, ...scenario.arrow, "Coach read"]];
+      const solutionMarkup = rawSolutionRoutes.map(([type, rawX1, rawY1, rawX2, rawY2, label], index) => {
+        const x1 = scaleX(rawX1), y1 = scaleY(rawY1), x2 = scaleX(rawX2), y2 = scaleY(rawY2);
+        const solutionPath = curvedPath(x1, y1, x2, y2, type === "pass" ? 0 : 13);
+        const captionX = Math.max(55, Math.min(445, x2 + (x2 > 390 ? -70 : 12)));
+        const captionY = Math.max(26, Math.min(446, y2 - 14));
+        const delay = Number((index * .58).toFixed(2));
+        return `
+          <path class="solution-route solution-${type}" style="--solution-delay:${delay}s" pathLength="100" d="${solutionPath}" marker-end="url(#arrow-solution)"/>
+          <circle class="solution-puck" data-delay="${delay}" r="7" cx="0" cy="0">
+            <animateMotion class="solution-animation" dur=".82s" begin="indefinite" fill="freeze" path="${solutionPath}"/>
+          </circle>
+          <text class="solution-caption" style="--solution-delay:${delay + .45}s" x="${captionX}" y="${captionY}">${label}</text>`;
+      }).join("");
+      const labelMarkup = (scenario.labels || []).map(([label, rawX, rawY]) => {
+        const x = scaleX(rawX), y = scaleY(rawY);
+        const width = Math.max(74, label.length * 6.4 + 16);
+        return `<g class="court-label" transform="translate(${x} ${y})"><rect x="${-width / 2}" y="-13" width="${width}" height="22" rx="11"/><text y="2">${label}</text></g>`;
+      }).join("");
       return `
         <defs>
           <pattern id="courtWood" width="50" height="470" patternUnits="userSpaceOnUse">
@@ -1408,7 +1752,7 @@
           <marker id="arrow-dribble" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#ffe08a"/></marker>
           <marker id="arrow-cut" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#b8dcff"/></marker>
           <marker id="arrow-defense" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#ff9aa5"/></marker>
-          <marker id="arrow-solution" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#38d996"/></marker>
+          <marker id="arrow-solution" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#4fd63e"/></marker>
         </defs>
         <rect width="500" height="470" fill="url(#courtWood)"/>
         <rect x="170" y="0" width="160" height="190" fill="rgba(9,62,110,.08)"/>
@@ -1420,16 +1764,14 @@
           <path d="M220 40h60" stroke-width="4"/>
           <circle cx="250" cy="52.5" r="9"/>
           <path d="M210 52.5 A40 40 0 0 0 290 52.5"/>
+          <path d="M230 52.5 A20 20 0 0 0 270 52.5" opacity=".65"/>
           <path d="M190 470 A60 60 0 0 1 310 470" opacity=".42"/>
           <path d="M170 120h8M322 120h8M170 145h8M322 145h8M170 170h8M322 170h8" opacity=".72"/>
         </g>
+        ${labelMarkup}
         ${routeMarkup}
         ${playerMarkup}
-        <path id="coach-solution-path" class="solution-route" pathLength="100" d="${solutionPath}" marker-end="url(#arrow-solution)"/>
-        <circle class="solution-puck" r="7" cx="0" cy="0">
-          <animateMotion class="solution-animation" dur=".9s" begin="indefinite" fill="freeze" path="${solutionPath}"/>
-        </circle>
-        <text class="solution-caption" x="${captionX}" y="${captionY}">COACH READ</text>`;
+        ${solutionMarkup}`;
     }
 
     function motionIsReduced() {
@@ -1438,34 +1780,82 @@
 
     function playSetupMotion() {
       if (motionIsReduced()) return;
+      state.motionTimeouts.forEach(window.clearTimeout);
+      state.motionTimeouts = [];
       document.querySelectorAll(".setup-animation").forEach((animation) => {
-        try { animation.beginElement(); } catch (_) { /* Static fallback remains readable. */ }
+        const delay = Number(animation.dataset.delay || 0) * 1000;
+        const timeout = window.setTimeout(() => {
+          try { animation.beginElement(); } catch (_) { /* Static fallback remains readable. */ }
+        }, delay);
+        state.motionTimeouts.push(timeout);
       });
     }
 
     function revealCoachSolution(replay = false) {
-      const route = document.querySelector(".solution-route");
-      const caption = document.querySelector(".solution-caption");
-      const puck = document.querySelector(".solution-puck");
-      if (!route) return;
+      const routes = [...document.querySelectorAll(".solution-route")];
+      const captions = [...document.querySelectorAll(".solution-caption")];
+      const pucks = [...document.querySelectorAll(".solution-puck")];
+      if (!routes.length) return;
       if (replay) {
-        route.classList.remove("revealed");
-        caption?.classList.remove("revealed");
-        puck?.classList.remove("revealed");
-        void route.getBoundingClientRect();
+        routes.forEach((route) => route.classList.remove("revealed"));
+        captions.forEach((caption) => caption.classList.remove("revealed"));
+        pucks.forEach((puck) => puck.classList.remove("revealed"));
+        void routes[0].getBoundingClientRect();
       }
-      route.classList.add("revealed");
-      caption?.classList.add("revealed");
-      puck?.classList.add("revealed");
+      routes.forEach((route) => route.classList.add("revealed"));
+      captions.forEach((caption) => caption.classList.add("revealed"));
+      pucks.forEach((puck) => puck.classList.add("revealed"));
+      const scenario = scenarios[state.index];
+      (scenario.solutionTargets || []).forEach((label) => {
+        document.querySelector(`.player-marker[data-player="${label}"]`)?.classList.add("coach-target");
+      });
       if (!motionIsReduced()) {
         document.querySelectorAll(".solution-animation").forEach((animation) => {
-          try { animation.beginElement(); } catch (_) { /* Drawn route is the fallback. */ }
+          const delay = Number(animation.parentElement?.dataset.delay || 0);
+          try { animation.beginElementAt(delay); } catch (_) { /* Drawn route is the fallback. */ }
         });
       }
       $("court-mode-label").textContent = "Coach solution";
       $("court-mode-label").classList.add("solution");
       $("replay-btn").textContent = "↻ Replay coach read";
       $("replay-btn").setAttribute("aria-label", "Replay coach solution");
+    }
+
+    const DECISION_SECONDS = 24;
+    const TIMER_START_DELAY_MS = 0;
+
+    function clearDecisionTimer() {
+      if (state.timerInterval) window.clearInterval(state.timerInterval);
+      if (state.timerDelay) window.clearTimeout(state.timerDelay);
+      state.timerInterval = null;
+      state.timerDelay = null;
+    }
+
+    function paintClock(secondsRemaining) {
+      const wholeSeconds = Math.max(0, Math.ceil(secondsRemaining));
+      const clock = $("decision-clock");
+      $("clock-value").textContent = String(wholeSeconds);
+      $("clock-fill").style.width = `${Math.max(0, secondsRemaining / DECISION_SECONDS) * 100}%`;
+      clock.classList.toggle("warning", secondsRemaining <= 8 && secondsRemaining > 4);
+      clock.classList.toggle("critical", secondsRemaining <= 4);
+      clock.setAttribute("aria-label", `${wholeSeconds} seconds remaining`);
+    }
+
+    function startDecisionTimer() {
+      clearDecisionTimer();
+      state.decisionStartedAt = 0;
+      const clock = $("decision-clock");
+      clock.classList.remove("paused", "warning", "critical");
+      paintClock(DECISION_SECONDS);
+      state.timerDelay = window.setTimeout(() => {
+        state.decisionStartedAt = performance.now();
+        state.timerInterval = window.setInterval(() => {
+          const elapsed = (performance.now() - state.decisionStartedAt) / 1000;
+          const remaining = Math.max(0, DECISION_SECONDS - elapsed);
+          paintClock(remaining);
+          if (remaining <= 0) selectChoice(null, true);
+        }, 100);
+      }, TIMER_START_DELAY_MS);
     }
 
     function renderScenario() {
@@ -1500,6 +1890,7 @@
       buildProgress();
       document.querySelectorAll(".choice").forEach((btn) => btn.addEventListener("click", () => selectChoice(Number(btn.dataset.choice))));
       requestAnimationFrame(playSetupMotion);
+      startDecisionTimer();
     }
 
     function rating(points) {
@@ -1509,22 +1900,33 @@
       return { className: "miss", label: "Missed read", title: "Defense wins" };
     }
 
-    function selectChoice(displayChoiceIndex) {
+    function selectChoice(displayChoiceIndex, timedOut = false) {
       if (state.answered) return;
       state.answered = true;
+      clearDecisionTimer();
+      $("decision-clock").classList.add("paused");
       const scenario = scenarios[state.index];
-      const originalChoiceIndex = state.choiceOrders[state.index][displayChoiceIndex];
-      const choice = scenario.choices[originalChoiceIndex];
-      const result = rating(choice.points);
-      state.score += choice.points;
-      state.categoryEarned[scenario.category] += choice.points;
-      state.answers.push({ scenario: state.index, choice: originalChoiceIndex, displayPosition: displayChoiceIndex, points: choice.points });
+      const originalChoiceIndex = timedOut ? null : state.choiceOrders[state.index][displayChoiceIndex];
+      const choice = timedOut ? null : scenario.choices[originalChoiceIndex];
+      const points = choice?.points || 0;
+      const result = timedOut
+        ? { className: "miss", label: "Time expired", title: "Decision clock expired" }
+        : rating(points);
+      const responseTime = timedOut
+        ? DECISION_SECONDS
+        : state.decisionStartedAt
+          ? Math.min(DECISION_SECONDS, (performance.now() - state.decisionStartedAt) / 1000)
+          : 0;
+      state.score += points;
+      state.categoryEarned[scenario.category] += points;
+      state.responseTimes.push(responseTime);
+      state.answers.push({ scenario: state.index, choice: originalChoiceIndex, displayPosition: displayChoiceIndex, points, responseTime, timedOut });
 
       document.querySelectorAll(".choice").forEach((btn, i) => {
         btn.disabled = true;
         const status = btn.querySelector(".choice-status");
         const displayedChoice = scenario.choices[state.choiceOrders[state.index][i]];
-        if (i === displayChoiceIndex) {
+        if (!timedOut && i === displayChoiceIndex) {
           btn.classList.add("selected", result.className);
           status.textContent = result.label;
         } else if (displayedChoice.points === 10) {
@@ -1538,8 +1940,9 @@
       void scoreEl.offsetWidth;
       scoreEl.classList.add("score-pop");
       $("feedback-title").textContent = result.title;
-      $("points-earned").textContent = `+${choice.points} points`;
-      $("feedback-copy").textContent = choice.feedback;
+      $("points-earned").textContent = `+${points} points`;
+      $("feedback-copy").textContent = timedOut ? scenario.timeoutFeedback : choice.feedback;
+      $("feedback-why").textContent = `Decision time: ${responseTime.toFixed(1)} seconds · Coverage: ${scenario.context[0]}`;
       $("feedback-cue").innerHTML = `<strong>Coach's cue:</strong> ${scenario.cue}`;
       $("feedback").classList.add("visible");
       $("next-row").classList.add("visible");
@@ -1567,12 +1970,21 @@
     }
 
     function renderResults() {
+      clearDecisionTimer();
       showScreen(resultsScreen);
       const grade = gradeFor(state.score);
       $("results-title").textContent = grade.title;
       $("results-summary").textContent = grade.summary;
       $("final-score").textContent = state.score;
       $("score-ring").style.setProperty("--score-angle", `${state.score * 3.6}deg`);
+
+      const averageTime = state.responseTimes.length
+        ? state.responseTimes.reduce((sum, value) => sum + value, 0) / state.responseTimes.length
+        : 0;
+      const bestReads = state.answers.filter((answer) => answer.points === 10).length;
+      $("session-metrics").innerHTML = `
+        <div class="session-metric"><strong>${averageTime.toFixed(1)}s</strong><span>Average decision time</span></div>
+        <div class="session-metric"><strong>${bestReads}/10</strong><span>Best reads identified</span></div>`;
 
       $("skill-bars").innerHTML = Object.keys(state.categoryMax).map((category) => {
         const pct = Math.round((state.categoryEarned[category] / state.categoryMax[category]) * 100);
@@ -1587,7 +1999,7 @@
         const level = answer.points >= 8 ? "high" : answer.points >= 4 ? "mid" : "low";
         return `<div class="review-item">
           <span class="review-num">${i + 1}</span>
-          <span class="review-title">${scenario.title}</span>
+          <span class="review-title">${scenario.title}${answer.timedOut ? " · Time expired" : ` · ${answer.responseTime.toFixed(1)}s`}</span>
           <span class="review-points ${level}">${answer.points}/10</span>
         </div>`;
       }).join("");
@@ -1596,10 +2008,13 @@
     }
 
     function startGame() {
+      clearDecisionTimer();
       state.index = 0;
       state.score = 0;
       state.answered = false;
       state.answers = [];
+      state.responseTimes = [];
+      state.decisionStartedAt = 0;
       initializeCategories();
       initializeChoiceOrders();
       scoreEl.textContent = "00";
@@ -1626,6 +2041,25 @@
       }
     });
 
+    function validateGameData() {
+      const errors = [];
+      if (scenarios.length !== 10) errors.push("The game must contain exactly 10 scenarios.");
+      scenarios.forEach((scenario, index) => {
+        if (scenario.choices.length !== 4) errors.push(`Possession ${index + 1} must contain four choices.`);
+        const pointSet = scenario.choices.map((choice) => choice.points).sort((a, b) => a - b).join(",");
+        if (pointSet !== "0,4,7,10") errors.push(`Possession ${index + 1} has an invalid scoring ladder.`);
+        scenario.choices.forEach((choice, choiceIndex) => {
+          const words = choice.text.trim().split(/\s+/).length;
+          if (words < 18 || words > 20) errors.push(`Possession ${index + 1}, choice ${choiceIndex + 1} is not length balanced.`);
+        });
+        scenario.players.forEach(([label, x, y]) => {
+          if (x < 0 || x > 420 || y < 0 || y > 490) errors.push(`Possession ${index + 1}, player ${label} is outside the court.`);
+        });
+      });
+      if (errors.length) throw new Error(`Game data validation failed:\n${errors.join("\n")}`);
+    }
+
+    validateGameData();
     initializeCategories();
   </script>
 </body>
